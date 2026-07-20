@@ -1,0 +1,27 @@
+body {
+    font-family: Georgia, serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #f5f5f5;
+    color: #222;
+}
+
+header {
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#reader {
+    background: white;
+    margin-top: 20px;
+    padding: 30px;
+    line-height: 1.8;
+    border-radius: 8px;
+    min-height: 400px;
+}
