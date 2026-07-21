@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Reading</title>
+    <title>Novel Reader</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,55 +15,67 @@
 <main>
 
 <button id="downloadBtn">
-Download Novel
+    Download Novel
 </button>
 
 <article id="reader">
-Loading novel...
+    Loading novel...
 </article>
 
 </main>
 
-<script src="reader.js"></script>
 
-</body>
-</html>const selector = document.getElementById("novelSelect");
+<script>
+
 const reader = document.getElementById("reader");
 const downloadBtn = document.getElementById("downloadBtn");
+const title = document.getElementById("title");
 
-let selectedFile = "";
+const params = new URLSearchParams(window.location.search);
+const file = params.get("file");
 
-selector.addEventListener("change", () => {
-    const file = selector.value;
-    selectedFile = file;
 
-    if (!file) {
-        reader.innerHTML = "Select a novel to start reading.";
-        return;
-    }
+if (!file) {
+
+    reader.innerHTML = "No novel selected.";
+
+} else {
+
+    title.textContent = file.split("/").pop();
+
 
     fetch(file)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("File not found");
+            }
+            return response.text();
+        })
         .then(text => {
             reader.innerHTML = text.replace(/\n/g, "<br><br>");
         })
         .catch(() => {
             reader.innerHTML = "Could not load novel.";
         });
-});
 
 
-downloadBtn.addEventListener("click", () => {
-    if (!selectedFile) {
-        alert("Please select a novel first.");
-        return;
-    }
+    downloadBtn.onclick = function() {
 
-    const link = document.createElement("a");
-    link.href = selectedFile;
-    link.download = selectedFile.split("/").pop();
+        const link = document.createElement("a");
 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
+        link.href = file;
+        link.download = file.split("/").pop();
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+    };
+
+}
+
+</script>
+
+
+</body>
+</html>
