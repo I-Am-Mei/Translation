@@ -1,4 +1,33 @@
-const selector = document.getElementById("novelSelect");
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1 id="title">Loading...</h1>
+</header>
+
+<main>
+
+<button id="downloadBtn">
+Download Novel
+</button>
+
+<article id="reader">
+Loading novel...
+</article>
+
+</main>
+
+<script src="reader.js"></script>
+
+</body>
+</html>const selector = document.getElementById("novelSelect");
 const reader = document.getElementById("reader");
 const downloadBtn = document.getElementById("downloadBtn");
 
