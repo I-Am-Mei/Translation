@@ -52,6 +52,7 @@ selector.addEventListener("change", () => {
         });
 });
 
+
 downloadBtn.addEventListener("click", () => {
     if (!selectedFile) {
         alert("Please select a novel first.");
