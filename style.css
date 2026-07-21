@@ -25,3 +25,61 @@ select {
     border-radius: 8px;
     min-height: 400px;
 }
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    background: #333;
+    color: white;
+
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    text-decoration: none;
+    z-index: 1000;
+}
+
+
+.side-back-button {
+    position: fixed;
+
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: #333;
+    color: white;
+
+    padding: 15px 10px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    writing-mode: vertical-rl;
+
+    z-index: 1000;
+}
+
+
+.bottom-button {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 40px auto;
+
+    background: #333;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+}
